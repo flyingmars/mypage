@@ -55,88 +55,12 @@
 	</div>
 	<script>
 var app = angular.module('myApp', []);
-app.controller('myController', ['$scope', function($scope) {
-	var progresses = [
-		{
-			title: 'Class Activities',
-			subprogresses: [
-				{
-					title: 'CA 1',
-					value: 80
-				},
-				{
-					title: 'CA 2',
-					value: 80
-				},
-				{
-					title: 'CA 3',
-					value: 90
-				},
-				{
-					title: 'CA 4',
-					value: 90
-				},
-				{
-					title: 'CA 5',
-					value: 10
-				},
-			]
-		},
-		{
-			title: 'Homework',
-			subprogresses: [
-				{
-					title: 'Homework 1',
-					value: 100
-				},
-				{
-					title: 'Homework 2',
-					value: 100
-				},
-				{
-					title: 'Homework 3',
-					value: 100
-				},
-				{
-					title: 'Homework 4',
-					value: 100
-				},
-			]
-		},
-		{
-			title: '期末考',
-			subprogresses: [
-				{
-					title: 'Question 1',
-					value: 0
-				},
-				{
-					title: 'Question 2',
-					value: 0
-				},
-				{
-					title: 'Question 3',
-					value: 0
-				},
-				{
-					title: 'Question 4',
-					value: 0
-				},
-			]
-		},
-		{
-			title: '期中考',
-			value: 100
-		},
-		{
-			title: 'Quiz',
-			value: 100
-		}
-	];
-	$scope.progresses = progresses;
+app.controller('myController', ['$scope', 'ProgressFactory', function($scope, pf) {
+	$scope.progresses = pf.progresses;
 	$scope.color = ['', 'progress-bar-success', 'progress-bar-info', 'progress-bar-warning', 'progress-bar-danger'];
 }]);
 	</script>
+	<script src="progress.js"></script>
 	</body>
 
 </html>
