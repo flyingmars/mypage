@@ -6,6 +6,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 	</head>
 	<style type="text/css">
 		h1{
@@ -21,8 +22,7 @@
 			color:#26453D;
 		}		
 	</style>
-	<body style="background-color:rgb(165,222,228)">
-
+	<body style="background-color:rgb(165,222,228)" ng-app="myApp" ng-controller="myController">
 	<div class="container-fluid" style="font-family:'cwTeXHei' ; background:url(http://nipponcolors.com/images/gloss.png) ; background-image:url(http://nipponcolors.com/images/texture.png)  ;  background-repeat-x :repeat ;">
 		<div class="row" style="height:5%;"></div>
 		<div class="row">
@@ -30,165 +30,37 @@
 				<h1>大氣熱力學批改進度</h1>
 				<hr />
 			</div>
-		</div>		
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">		
-				<h3> Class Activities </h3>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" style="width: 16%">80%</div>
-					<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 16%">80%</div>
-					<div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 18%">90%</div>
-					<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 18%">90%</div>
-					<div class="progress-bar progress-bar-danger progress-bar-striped active" style="width: 2%">10%</div>
-				</div>	
+		</div>
+		<div class="row" ng-repeat="progress in progresses">
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">
+				<h3>{{ progress.title }}</h3>
+				<div class="progress" ng-if="progress.subprogresses">
+					<div ng-repeat="subprogress in progress.subprogresses" ng-class="['progress-bar', 'progress-bar-striped', 'active', color[$index]]" ng-style="{width: subprogress.value / progress.subprogresses.length + '%'}">{{ subprogress.value }}%</div>
+				</div>
+				<div class="progress" ng-if="!progress.subprogresses">
+					<div class="progress-bar progress-bar-success progress-bar-striped active" ng-style="{width: progress.value + '%'}">{{ progress.value }}%</div>
+				</div>
+			</div>
+			<div class="col-xs-12" ng-if="progress.subprogresses">
+				<div class="row" ng-repeat="subprogress in progress.subprogresses">
+					<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
+						<h4>{{ subprogress.title }}</h4>
+						<div class="progress">
+							<div ng-class="['progress-bar', color[$index]]" ng-style="{width: subprogress.value + '%'}">{{ subprogress.value }}%</div>
+						</div>	
+					</div>						
+				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> CA 1 </h4>
-				<div class="progress">
-					<div class="progress-bar " style="width: 80%">80%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> CA 2 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success " style="width: 80%">80%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> CA 3 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-info " style="width: 90%">90%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> CA 4 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-warning " style="width: 90%">90%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> CA 5 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-danger " style="width: 10%">10%</div>
-				</div>	
-			</div>						
-		</div>
-
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">		
-				<h3> Homework </h3>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" style="width: 25%">100%</div>
-					<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 25%">100%</div>
-					<div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 25%">100%</div>
-					<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 25%">100%</div>
-				</div>	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Homework 1 </h4>
-				<div class="progress">
-					<div class="progress-bar " style="width: 100%">100%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Homework 2 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success " style="width: 100%">100%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Homework 3 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-info " style="width: 100%">100%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Homework 4 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-warning " style="width: 100%">100%</div>
-				</div>	
-			</div>						
-		</div>
-
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">		
-				<h3> 期末考 </h3>
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped active" style="width: 0%">0%</div>
-					<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 0%">0%</div>
-					<div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 0%">0%</div>
-					<div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 0%">0%</div>
-				</div>	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Question 1 </h4>
-				<div class="progress">
-					<div class="progress-bar " style="width: 0%">0%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Question 2 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success " style="width: 0%">0%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Question 3 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-info " style="width: 0%">0%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-11 col-sm-11 col-md-7 col-lg-7 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 col-sm-offset-1">		
-				<h4> Question 4 </h4>
-				<div class="progress">
-					<div class="progress-bar progress-bar-warning " style="width: 0%">0%</div>
-				</div>	
-			</div>						
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">		
-				<h3> 期中考 </h3>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 100%">100%</div>
-				</div>	
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2">		
-				<h3> Quiz </h3>
-				<div class="progress">
-					<div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 100%">100%</div>
-				</div>	
-			</div>
-		</div>		
-
 	</div>
+	<script>
+var app = angular.module('myApp', []);
+app.controller('myController', ['$scope', 'ProgressFactory', function($scope, pf) {
+	$scope.progresses = pf.progresses;
+	$scope.color = ['', 'progress-bar-success', 'progress-bar-info', 'progress-bar-warning', 'progress-bar-danger'];
+}]);
+	</script>
+	<script src="progress.js"></script>
 	</body>
 
 </html>
