@@ -21,7 +21,7 @@ return {progresses: [
 			},
 			{
 				title: 'CA 5',
-				value: 20
+				value: 90
 			},
 		]
 	},
