@@ -47,7 +47,7 @@ return {progresses: [
 		]
 	},
 	{
-		title: '成績計算作業',
+		title: '各項成績上傳',
 		subprogresses: [
 			{
 				title: '期中考',
@@ -59,7 +59,7 @@ return {progresses: [
 			},
 			{
 				title: 'Class Activities',
-				value: 0
+				value: 100
 			},
 			{
 				title: 'Homework',
