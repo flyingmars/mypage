@@ -5,7 +5,7 @@ return {progresses: [
 		subprogresses: [
 			{
 				title: 'CA 1',
-				value: 80
+				value: 100
 			},
 			{
 				title: 'CA 2',
@@ -22,27 +22,6 @@ return {progresses: [
 			{
 				title: 'CA 5',
 				value: 90
-			},
-		]
-	},
-	{
-		title: 'Homework',
-		subprogresses: [
-			{
-				title: 'Homework 1',
-				value: 100
-			},
-			{
-				title: 'Homework 2',
-				value: 100
-			},
-			{
-				title: 'Homework 3',
-				value: 100
-			},
-			{
-				title: 'Homework 4',
-				value: 100
 			},
 		]
 	},
@@ -67,6 +46,10 @@ return {progresses: [
 			},
 		]
 	},
+    {
+        title: 'Homework',
+        value: 100
+    },
 	{
 		title: '期中考',
 		value: 100
