@@ -38,11 +38,11 @@ return {progresses: [
 			},
 			{
 				title: 'CA 4',
-				value: 90
+				value: 100
 			},
 			{
 				title: 'CA 5',
-				value: 98
+				value: 100
 			},
 		]
 	},
