@@ -5,7 +5,7 @@ return {progresses: [
 		subprogresses: [
 			{
 				title: 'Question 1',
-				value: 0
+				value: 100
 			},
 			{
 				title: 'Question 2',
