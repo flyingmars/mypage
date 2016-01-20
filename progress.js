@@ -9,11 +9,11 @@ return {progresses: [
 			},
 			{
 				title: 'Question 2',
-				value: 0
+				value: 80
 			},
 			{
 				title: 'Question 3',
-				value: 0
+				value: 100
 			},
 			{
 				title: 'Question 4',
