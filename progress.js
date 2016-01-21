@@ -9,7 +9,7 @@ return {progresses: [
 			},
 			{
 				title: 'Question 2',
-				value: 80
+				value: 100
 			},
 			{
 				title: 'Question 3',
@@ -17,35 +17,10 @@ return {progresses: [
 			},
 			{
 				title: 'Question 4',
-				value: 0
+				value: 70
 			},
 		]
 	},    
-	{
-		title: 'Class Activities',
-		subprogresses: [
-			{
-				title: 'CA 1',
-				value: 100
-			},
-			{
-				title: 'CA 2',
-				value: 100
-			},
-			{
-				title: 'CA 3',
-				value: 100
-			},
-			{
-				title: 'CA 4',
-				value: 100
-			},
-			{
-				title: 'CA 5',
-				value: 100
-			},
-		]
-	},
 	{
 		title: '各項成績上傳',
 		subprogresses: [
@@ -70,7 +45,11 @@ return {progresses: [
 				value: 0
 			},
 		]
-	},    
+	},  
+    {
+        title: 'Class Activities',
+        value: 100
+    },    
     {
         title: 'Homework',
         value: 100
