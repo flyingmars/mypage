@@ -30,7 +30,7 @@ return {progresses: [
 			},
 			{
 				title: '期末考',
-				value: 000
+				value: 100
 			},
 			{
 				title: 'Class Activities',
