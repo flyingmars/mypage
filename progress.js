@@ -17,7 +17,7 @@ return {progresses: [
 			},
 			{
 				title: 'Question 4',
-				value: 70
+				value: 100
 			},
 		]
 	},    
@@ -26,11 +26,11 @@ return {progresses: [
 		subprogresses: [
 			{
 				title: '期中考',
-				value: 0
+				value: 100
 			},
 			{
 				title: '期末考',
-				value: 0
+				value: 000
 			},
 			{
 				title: 'Class Activities',
@@ -38,11 +38,11 @@ return {progresses: [
 			},
 			{
 				title: 'Homework',
-				value: 0
+				value: 100
 			},
 			{
 				title: 'Quiz',
-				value: 0
+				value: 100
 			},
 		]
 	},  
